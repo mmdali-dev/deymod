@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/glebarez/sqlite"
+	"github.com/mmdali-dev/deymod/db/model"
 	"gorm.io/gorm"
 )
 
@@ -12,7 +13,7 @@ var (
 	err error
 )
 
-func Init() {
+func init() {
 
 	DB, err = gorm.Open(sqlite.Open("databse.db"), &gorm.Config{
 		//Logger: logger.Default.LogMode(logger.Silent),
@@ -21,11 +22,7 @@ func Init() {
 		fmt.Println("error for setting db")
 		panic(err)
 	}
-	// err = DB.AutoMigrate(&model.User{}, &model.Admin{})
-	// if err != nil {
-	// 	fmt.Println("error for migration db")
-	// 	panic(err)
-	// }
+	err = DB.AutoMigrate(&model.User{})
 }
 
 func GetDB() *gorm.DB {

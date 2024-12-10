@@ -2,16 +2,13 @@ package model
 
 type Location struct {
 	//gorm.Model
-	ID uint `gorm:"primary"`
-	//Username string `gorm:"unique"`
-	//Password string
-	//Email    string `gorm:"unique"`
-	//Token    string `gorm:"unique"`
-
-	NameCurator    string
-	FamilyCurator  string
-	PhoneCurator   string
-	AddressCurator string
-	DecorNumber    uint8
-	WorkType       string
+	ID             uint   `gorm:"primary" json:"id"`
+	BookerID       uint   `json:"booker_id"`
+	NameCurator    string `json:"name_curator"`
+	FamilyCurator  string `json:"family_curator"`
+	PhoneCurator   string `json:"phone_curator"`
+	AddressCurator string `json:"address_curator"`
+	DecorNumber    uint8  `json:"decor_number"`
+	WorkType       string `json:"work_type"`
+	Booker         Booker `json:"booker" gorm:"foreignKey:BookerID"`
 }

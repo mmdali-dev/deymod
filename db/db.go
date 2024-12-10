@@ -22,7 +22,7 @@ func init() {
 		fmt.Println("error for setting db")
 		panic(err)
 	}
-	err = DB.AutoMigrate(&model.User{})
+	err = DB.AutoMigrate(&model.User{}, &model.Booker{}, &model.Location{}, &model.Model{}, &model.Picturor{}, &model.PublicLocation{}, &model.PublicPicturor{}, &model.PublicManModel{}, &model.PublicWomanModel{})
 }
 
 func GetDB() *gorm.DB {

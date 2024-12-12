@@ -6,6 +6,7 @@ import (
 	"github.com/mmdali-dev/deymod/internal"
 )
 
+// init service
 type userService service
 
 var (
@@ -17,13 +18,13 @@ func (s *userService) CreateUser(user *model.User) (err error) {
 	return err
 }
 
-func (s *userService) UpdateUser(user *model.User) (err error) {
-	err = s.DB.Save(user).Error
+func (s *userService) DeleteUser(user *model.User) (err error) {
+	err = s.DB.Where(user).Delete(user).Error
 	return err
 }
 
-func (s *userService) DeleteUser(user *model.User) (err error) {
-	err = s.DB.Where(user).Delete(user).Error
+func (s *userService) UpdateUser(user *model.User) (err error) {
+	err = s.DB.Save(user).Error
 	return err
 }
 

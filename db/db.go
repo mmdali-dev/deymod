@@ -23,7 +23,7 @@ func init() {
 		fmt.Println("error for setting db")
 		panic(err)
 	}
-	err = DB.AutoMigrate(&model.User{}, &model.Booker{}, &model.Location{}, &model.Model{}, &model.Picturor{}, &model.PublicLocation{}, &model.PublicPicturor{}, &model.PublicManModel{}, &model.PublicWomanModel{})
+	err = DB.AutoMigrate(&model.User{}, &model.Booker{}, &model.Location{}, &model.Model{}, &model.Picturor{}, &model.PublicLocation{}, &model.PublicPicturor{}, &model.PublicManModel{}, &model.PublicWomanModel{}, &model.ImageLocation{}, &model.ImageModel{}, &model.ImagePicturor{})
 }
 
 func GetDB() *gorm.DB {

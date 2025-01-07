@@ -67,8 +67,8 @@ func (s *picturorService) ChangeToken(picturor *model.Picturor) error {
 
 }
 
-func (s *picturorService) RegisterPicturor(username, password string) (token string, err error) {
-	picturor := model.Picturor{Username: username, Password: password}
+func (s *picturorService) RegisterPicturor(username, password string, bookerid uint) (token string, err error) {
+	picturor := model.Picturor{Username: username, Password: password, BookerID: bookerid}
 	err = s.CreatePicturor(&picturor)
 	if err != nil || picturor.ID == 0 {
 		token = ""

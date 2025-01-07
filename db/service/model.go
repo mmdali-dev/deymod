@@ -67,8 +67,8 @@ func (s *modelService) ChangeToken(modell *model.Model) error {
 
 }
 
-func (s *modelService) RegisterModel(username, password string) (token string, err error) {
-	modell := model.Model{Username: username, Password: password}
+func (s *modelService) RegisterModel(username, password string, bookerid uint) (token string, err error) {
+	modell := model.Model{Username: username, Password: password, BookerID: bookerid}
 	err = s.CreateModel(&modell)
 	if err != nil || modell.ID == 0 {
 		token = ""

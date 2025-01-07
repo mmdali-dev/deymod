@@ -2,8 +2,8 @@ package model
 
 type ImageLocation struct {
 	//gorm.Model
-	ID         uint     `gorm:"primary" json:"id"`
-	FileName   string   `json:"file_name"`
-	LocationID uint     `json:"location_id"`
-	Location   Location `json:"location" gorm:"foreignKey:LocationID"`
+	ID               uint           `gorm:"primary" json:"id"`
+	FileName         string         `json:"file_name"`
+	PublicLocationID uint           `json:"public_location_id"`
+	PublicLocation   PublicLocation `json:"public_location" gorm:"foreignKey:PublicLocationID"`
 }

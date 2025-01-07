@@ -43,10 +43,10 @@ func AddComment(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)
 	case "picturor":
 		com := model.PicturorComment{
-			UserID:     user.ID,
-			PicturorID: data.TargetID,
-			Score:      data.Score,
-			Comment:    data.Text,
+			UserID:           user.ID,
+			PublicPicturorID: data.TargetID,
+			Score:            data.Score,
+			Comment:          data.Text,
 		}
 		err := service.Comment.CreatePicturorComment(&com)
 		if err != nil || com.ID == 0 {
@@ -55,10 +55,10 @@ func AddComment(c *fiber.Ctx) error {
 		return c.SendStatus(fiber.StatusOK)
 	case "location":
 		com := model.LocationComment{
-			UserID:     user.ID,
-			LocationID: data.TargetID,
-			Score:      data.Score,
-			Comment:    data.Text,
+			UserID:           user.ID,
+			PublicLocationID: data.TargetID,
+			Score:            data.Score,
+			Comment:          data.Text,
 		}
 		err := service.Comment.CreateLocationComment(&com)
 		if err != nil || com.ID == 0 {

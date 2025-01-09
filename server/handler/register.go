@@ -6,6 +6,22 @@ import (
 	"github.com/mmdali-dev/deymod/db/service"
 )
 
+func RegisterUser(c *fiber.Ctx) error {
+	data := new(singleform)
+	if err := c.BodyParser(data); err != nil {
+		return c.Status(fiber.StatusBadRequest).SendString(err.Error())
+	}
+	token, err := service.User.RegisterUser(data.Username, data.Password)
+	if err != nil || token == "" {
+		return c.Status(fiber.StatusBadRequest).SendString("username already exist")
+	}
+	return c.JSON(fiber.Map{
+		"token": token,
+		"role":  "user",
+	})
+
+}
+
 func RegisterModelOrPicturor(c *fiber.Ctx) error {
 	data := new(authform)
 	var token string
@@ -34,7 +50,7 @@ func RegisterModelOrPicturor(c *fiber.Ctx) error {
 }
 
 func RegisterBooker(c *fiber.Ctx) error {
-	data := new(authform)
+	data := new(singleform)
 	var token string
 	var err error
 	if err := c.BodyParser(data); err != nil {

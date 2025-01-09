@@ -11,6 +11,7 @@ func AddRoutes(app *fiber.App) {
 	app.Post("/register/modelorpicturor", middleware.CheckBooker, handler.RegisterModelOrPicturor)
 	app.Post("/register/location", middleware.CheckBooker, handler.RegisterLocation)
 	app.Post("/register/booker", middleware.CheckAdmin, handler.RegisterBooker)
+	app.Post("/register/user", handler.RegisterUser)
 
 	app.Post("/comment", middleware.CheckUser, handler.AddComment)
 

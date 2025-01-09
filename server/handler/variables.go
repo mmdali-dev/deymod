@@ -22,3 +22,8 @@ type commentdata struct {
 	UserType string `form:"user_type"`
 	TargetID uint   `form:"tragte_id"`
 }
+
+type singleform struct {
+	Username string `form:"username"`
+	Password string `form:"password"`
+}

@@ -17,5 +17,5 @@ type Picturor struct {
 	History        string `json:"history"`
 	WorkType       string `json:"work_type"`
 	Profile        uint   `json:"profile"`
-	Booker         Booker `json:"booker" gorm:"foreignKey:BookerID"`
+	//Booker         Booker `json:"booker" gorm:"foreignKey:BookerID"`
 }

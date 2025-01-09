@@ -67,3 +67,8 @@ func (s *locationService) DeletePublicLocation(publoc *model.PublicLocation) (er
 	err = s.DB.Where(publoc).Delete(publoc).Error
 	return err
 }
+
+func (s *locationService) FullTree(publocs *[]model.PublicLocation) (err error) {
+	err = s.DB.Preload("Images").Preload("Comments").Find(publocs).Error
+	return err
+}

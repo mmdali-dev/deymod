@@ -152,3 +152,13 @@ func (s *modelService) DeletePublicWoman(pubwoman *model.PublicWomanModel) (err 
 	err = s.DB.Where(pubwoman).Delete(pubwoman).Error
 	return err
 }
+
+func (s *modelService) FullTreeMan(models *[]model.PublicManModel) (err error) {
+	err = s.DB.Preload("Images").Preload("Comments").Find(models).Error
+	return err
+}
+
+func (s *modelService) FullTreeWoman(models *[]model.PublicWomanModel) (err error) {
+	err = s.DB.Preload("Images").Preload("Comments.User").Find(models).Error
+	return err
+}

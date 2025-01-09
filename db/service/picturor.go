@@ -123,3 +123,8 @@ func (s *picturorService) DeletePublicPicturor(pubpic *model.PublicPicturor) (er
 	err = s.DB.Where(pubpic).Delete(pubpic).Error
 	return err
 }
+
+func (s *picturorService) FullTree(models *[]model.PublicPicturor) (err error) {
+	err = s.DB.Preload("Images").Preload("Comments").Find(models).Error
+	return err
+}

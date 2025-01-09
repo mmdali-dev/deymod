@@ -12,5 +12,5 @@ type Location struct {
 	WorkType       string `json:"work_type"`
 	Profile        uint   `json:"profile"`
 	City           string `json:"city"`
-	Booker         Booker `json:"booker" gorm:"foreignKey:BookerID"`
+	//Booker         Booker `json:"booker" gorm:"foreignKey:BookerID"`
 }

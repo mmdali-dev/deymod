@@ -17,5 +17,5 @@ type Model struct {
 	WorkType string `json:"work_type"`
 	Gender   bool   `json:"gender"`
 	Profile  uint   `json:"profile"`
-	Booker   Booker `json:"booker" gorm:"foreignKey:BookerID"`
+	//Booker   Booker `json:"booker" gorm:"foreignKey:BookerID"`
 }

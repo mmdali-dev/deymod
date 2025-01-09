@@ -128,3 +128,8 @@ func (s *picturorService) FullTree(models *[]model.PublicPicturor) (err error) {
 	err = s.DB.Preload("Images").Preload("Comments").Find(models).Error
 	return err
 }
+
+func (s *picturorService) AddPicturorImage(image *model.ImagePicturor) (err error) {
+	err = s.DB.Create(image).Error
+	return
+}

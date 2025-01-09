@@ -159,6 +159,15 @@ func (s *modelService) FullTreeMan(models *[]model.PublicManModel) (err error) {
 }
 
 func (s *modelService) FullTreeWoman(models *[]model.PublicWomanModel) (err error) {
-	err = s.DB.Preload("Images").Preload("Comments.User").Find(models).Error
+	err = s.DB.Preload("Images").Preload("Comments").Find(models).Error
 	return err
+}
+
+func (s *modelService) AddManImage(image *model.ImageManModel) (err error) {
+	err = s.DB.Create(image).Error
+	return
+}
+func (s *modelService) AddWomanImage(image *model.ImageWomanModel) (err error) {
+	err = s.DB.Create(image).Error
+	return
 }

@@ -72,3 +72,8 @@ func (s *locationService) FullTree(publocs *[]model.PublicLocation) (err error) 
 	err = s.DB.Preload("Images").Preload("Comments").Find(publocs).Error
 	return err
 }
+
+func (s *locationService) AddLocationImage(image *model.ImageLocation) (err error) {
+	err = s.DB.Create(image).Error
+	return
+}
